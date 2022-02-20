@@ -23,28 +23,28 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    @Override
-    public User saveUser(UserCreateDto dto) {
-//        if (userRepository.existsByEmail(dto.getEmail()))                    // email bo'yicha ishlamadi
-//            throw new RuntimeException("Such Email already exists");
-
-        Set<Role> roleSet = new HashSet<>();
-        Set<Long> roleIds = dto.getRoleIds();
-        for (Long roleId : roleIds) {
-            Role role = roleRepository.findById(roleId)
-                    .orElseThrow(() -> new NotFoundException("Not Found Role with ID: " + roleId));
-            roleSet.add(role);
-        }
-
-        User user = new User(
-                dto.getFirstname(),
-                dto.getLastname(),
-                dto.getEmail(),
-                dto.getPassword(),
-                roleSet
-        );
-        return userRepository.save(user);
-    }
+//    @Override
+//    public User saveUser(UserCreateDto dto) {
+////        if (userRepository.existsByEmail(dto.getEmail()))                    // email bo'yicha ishlamadi
+////            throw new RuntimeException("Such Email already exists");
+//
+//        Set<Role> roleSet = new HashSet<>();
+//        Set<Long> roleIds = dto.getRoleIds();
+//        for (Long roleId : roleIds) {
+//            Role role = roleRepository.findById(roleId)
+//                    .orElseThrow(() -> new NotFoundException("Not Found Role with ID: " + roleId));
+//            roleSet.add(role);
+//        }
+//
+//        User user = new User(
+//                dto.getFirstname(),
+//                dto.getLastname(),
+//                dto.getEmail(),
+//                dto.getPassword(),
+//                roleSet
+//        );
+//        return userRepository.save(user);
+//    }
 
 
     @Override

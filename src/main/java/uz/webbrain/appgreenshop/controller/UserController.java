@@ -15,15 +15,15 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping
-    public User save(@RequestBody UserCreateDto dto) {
-        return userService.saveUser(dto);
-    }
+//    @PostMapping
+//    public User save(@RequestBody UserCreateDto dto) {
+//        return userService.saveUser(dto);
+//    }
 
-    @GetMapping
-    public List<User> findAll() {
-        return userService.findAllUser();
-    }
+//    @GetMapping
+//    public List<User> findAll() {
+//        return userService.findAllUser();
+//    }
 
 
     @GetMapping("/{user_id}")

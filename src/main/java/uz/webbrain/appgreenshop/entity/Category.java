@@ -19,6 +19,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "category")
 public class Category extends AbcEntity {
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
     @ManyToOne
     @JoinColumn(name = "parent_id", nullable = true)
