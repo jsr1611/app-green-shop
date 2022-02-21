@@ -9,6 +9,8 @@ import uz.webbrain.appgreenshop.dto.RegisterDto;
 import uz.webbrain.appgreenshop.dto.response.Response;
 import uz.webbrain.appgreenshop.service.impl.MyUserService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
@@ -17,12 +19,13 @@ public class AuthController {
     private final MyUserService userService;
 
     @PostMapping("/register/user")
-    public HttpEntity<?> register(@RequestBody RegisterDto dto){
+    public HttpEntity<?> register(@Valid @RequestBody RegisterDto dto){
         Response response = userService.register(dto);
         return ResponseEntity.status(response.isSuccess() ? 200 : 500 ).body(response);
     }
+
     @PostMapping("/login")
-    public HttpEntity<?> login(@RequestBody LoginDto dto){
+    public HttpEntity<?> login(@Valid @RequestBody LoginDto dto){
         Response response = userService.login(dto);
         return ResponseEntity.status(response.isSuccess() ? 200 : 500).body(response);
     }

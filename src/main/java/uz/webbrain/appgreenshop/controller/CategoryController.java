@@ -14,6 +14,8 @@ import uz.webbrain.appgreenshop.dto.request.CategoryDTO;
 import uz.webbrain.appgreenshop.service.CategoryService;
 import uz.webbrain.appgreenshop.utils.ApiPageable;
 
+import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/api/v1/categories")
@@ -25,7 +27,7 @@ public class CategoryController {
     }
 
     @PostMapping
-    public HttpEntity<?> addCategory(@RequestBody CategoryDTO categoryDTO){
+    public HttpEntity<?> addCategory(@Valid @RequestBody CategoryDTO categoryDTO){
         return categoryService.addCategory(categoryDTO);
     }
 

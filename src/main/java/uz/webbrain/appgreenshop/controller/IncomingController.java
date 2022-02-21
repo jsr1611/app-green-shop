@@ -9,12 +9,9 @@ package uz.webbrain.appgreenshop.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 import uz.webbrain.appgreenshop.dto.request.IncomingDto;
-import uz.webbrain.appgreenshop.dto.response.Response;
-import uz.webbrain.appgreenshop.entity.Incoming;
 import uz.webbrain.appgreenshop.service.IncomingService;
 import uz.webbrain.appgreenshop.utils.ApiPageable;
 
