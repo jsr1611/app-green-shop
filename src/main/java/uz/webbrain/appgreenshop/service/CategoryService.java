@@ -6,19 +6,25 @@ package uz.webbrain.appgreenshop.service;
  * created:  17/02/2022 1:25 PM
  */
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpEntity;
 import uz.webbrain.appgreenshop.dto.request.CategoryDTO;
 import uz.webbrain.appgreenshop.entity.Category;
 
-import java.util.List;
-
 public interface CategoryService {
-    Category addCategory(CategoryDTO categoryDTO);
 
-    List<Category> findAll();
+    HttpEntity<?> addCategory(CategoryDTO categoryDTO);
 
-    Category editCategory(Long category_id, CategoryDTO categoryDTO);
+    HttpEntity<?> findAllPageable(Pageable pageable);
 
-    String deleteCategory(Long category_id);
+    HttpEntity<?> findAll();
+
+    HttpEntity<?> findOneById(Long id);
+
+    HttpEntity<?> editCategory(Long category_id, CategoryDTO categoryDTO);
+
+    HttpEntity<?> deleteCategory(Long category_id);
 
     Category findById(Long category_id);
+
 }

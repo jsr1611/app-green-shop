@@ -1,19 +1,27 @@
 package uz.webbrain.appgreenshop.service;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpEntity;
 import uz.webbrain.appgreenshop.dto.request.IncomingDto;
+import uz.webbrain.appgreenshop.dto.response.Response;
 import uz.webbrain.appgreenshop.entity.Incoming;
 
 import java.util.List;
 
 public interface IncomingService {
 
-    Incoming addIncoming(IncomingDto incomingDto);
+    HttpEntity<?> addIncoming(IncomingDto incomingDto);
 
-    List<Incoming> getAll();
+    HttpEntity<?> findAllPageable(Pageable pageable);
 
-    Incoming editIncoming(Long incomingId, IncomingDto incomingDto);
+    HttpEntity<?> getAll();
 
-    String deleteIncoming(Long incomingId);
+    HttpEntity<?> findOneById(Long id);
+
+    HttpEntity<?> editIncoming(Long incomingId, IncomingDto incomingDto);
+
+    HttpEntity<?> deleteIncoming(Long incomingId);
 
     Incoming findById(Long id);
+
 }
