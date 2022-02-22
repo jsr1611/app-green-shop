@@ -88,10 +88,13 @@ public class CategoryServiceImpl implements CategoryService {
             response.setMessage("Category Not Found with id: {" + category_id + "}");
         }else {
             category.setName(categoryDTO.getName());
-            Category parent = findById(categoryDTO.getParentId());
-            if(parent != null){
-                category.setParent(parent);
+            if(categoryDTO.getParentId() != null){
+                Category parent = findById(categoryDTO.getParentId());
+                if(parent != null){
+                    category.setParent(parent);
+                }
             }
+
             category = categoryRespository.save(category);
             response.setData(category);
         }

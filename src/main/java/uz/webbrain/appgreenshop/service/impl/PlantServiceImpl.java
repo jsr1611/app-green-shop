@@ -2,9 +2,7 @@ package uz.webbrain.appgreenshop.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import uz.webbrain.appgreenshop.dto.request.PlantCreateDto;
 import uz.webbrain.appgreenshop.dto.response.Response;
@@ -37,7 +35,6 @@ public class PlantServiceImpl implements PlantService {
         plant.setRelated(relatedPlant);
         plant.setSize(PlantSize.getSize(dto.getSize()));
         plant.setParent(parentPlant);
-        plant.setCreatedAt(dto.getCreatedAt());
         return plantRepository.save(plant);
     }
 
@@ -83,7 +80,6 @@ public class PlantServiceImpl implements PlantService {
         plant.setRelated(relatedPlant);
         plant.setSize(PlantSize.valueOf(dto.getSize()));
         plant.setParent(parentPlant);
-        plant.setCreatedAt(dto.getCreatedAt());
         return plantRepository.save(plant);
     }
 

@@ -38,7 +38,4 @@ public class Incoming extends AbcEntity {
     @Column(name = "active")
     private Boolean active;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
-
 }

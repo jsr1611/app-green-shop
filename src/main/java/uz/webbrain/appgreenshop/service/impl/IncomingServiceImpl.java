@@ -40,7 +40,6 @@ public class IncomingServiceImpl implements IncomingService {
         incoming.setPlant(plant);
         incoming.setQuantity(incomingDto.getQuantity());
         incoming.setActive(incomingDto.getActive());
-        incoming.setCreatedAt(incomingDto.getCreatedAt());
         response.setSuccess(true);
         incoming = incomingRepository.save(incoming);
         response.setData(incoming);
@@ -75,7 +74,6 @@ public class IncomingServiceImpl implements IncomingService {
             incoming.setPlant(plant);
             incoming.setQuantity(incomingDto.getQuantity());
             incoming.setActive(incomingDto.getActive());
-            incoming.setCreatedAt(incomingDto.getCreatedAt());
             incoming = incomingRepository.save(incoming);
             response.setData(incoming);
             response.setSuccess(true);

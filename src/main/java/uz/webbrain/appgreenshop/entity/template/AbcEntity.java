@@ -3,11 +3,14 @@ package uz.webbrain.appgreenshop.entity.template;
 
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 
@@ -16,11 +19,24 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
 public abstract class AbcEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @LastModifiedDate
+    private Timestamp updatedAt;
+
+    @CreatedBy
+    private Long createdBy;
+
+    @LastModifiedBy
+    private Long updatedBy;
 
     @Override
     public boolean equals(Object o) {

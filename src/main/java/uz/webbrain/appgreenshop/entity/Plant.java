@@ -43,7 +43,4 @@ public class Plant extends AbcEntity {
     @ManyToOne
     @JoinColumn(name = "parent_id", nullable = true)
     private Plant parent;
-
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
 }
