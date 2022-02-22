@@ -1,6 +1,7 @@
 package uz.webbrain.appgreenshop.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,7 +35,7 @@ public class User extends AbcEntity implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @ToString.Exclude
     private Set<Role> roles = new HashSet<>();
 
